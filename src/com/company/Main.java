@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args) {
 //	      String url1 = "http://javadevblog.com/sitemap.xml";
 //        String url2 = "http://www.licey86.ru/content/galleryBig/file34.jpg";
-//        String url3 = "http://www.licey86.ru/content/galleryBig/file19.jpg";
         String[] strings = new String[3];
         strings[0] = "http://www.licey86.ru/content/galleryBig/file204.jpg";
         strings[1] = "http://www.licey86.ru/content/galleryBig/file34.jpg";
