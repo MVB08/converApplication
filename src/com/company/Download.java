@@ -26,6 +26,7 @@ public class Download extends Thread {
             {
                 fis.write(buffer, 0, count);
             }
+            System.out.println(Thread.currentThread().getName() + " is done!");
             fis.close();
             bis.close();
         } catch (IOException e) {
