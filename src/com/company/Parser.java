@@ -32,18 +32,20 @@ public class Parser {
         return list;
     }
 
+    // передаём в метод список, делим его на 2 части и складываем в map, где ключ - URL,
+    // а значение - список с названиями выходных файлов
     public void mapping(List<String> list){
         for (int i = 0; i < list.size(); i++) {
             String[] str = list.get(i).split(" ");
             if (!map.containsKey(str[0])){
-                map.put(str[0], new ArrayList<String>());
+                map.put(str[0], new ArrayList<>());
             }
-                map.get(str[0]).add(str[1]);
+            map.get(str[0]).add(str[1]);
+        }
 
-        }
-        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
-            System.out.println("URL =  " + entry.getKey() + " file = " + entry.getValue());
-        }
+        map.forEach((key, value) -> {
+            System.out.println(key + " == " + value);
+        });
     }
 
 }

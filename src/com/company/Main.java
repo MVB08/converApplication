@@ -3,6 +3,7 @@ package com.company;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -16,23 +17,31 @@ public class Main {
 
 
         Parser parser = new Parser();
-        List<String> list = parser.parse("/Users/os_mac/IdeaProjects/JavaExam/textFile.txt");
+        List<String> list = parser.parse("/Users/os_mac/IdeaProjects/JavaExam/FilesFromURL/textFile.txt");
 
         parser.mapping(list);
+        Map<String, List<String>> mapURL = parser.map;
 
-        // Каждую строку делим по пробелу, первую часть - URL-ссылку передаём первым параметром, вторую - имя выходного файла - вторым параметром и стартуем всё в разных потоках
-        for (int i = 0; i < list.size(); i++){
-            String[] str = list.get(i).split(" ");
-            Download download = new Download(str[0], "/Users/os_mac/IdeaProjects/JavaExam/" + str[1]);
+        // Перебираем mapURL, передаём ключ со значением в конструктор и запускаем потоки
+        mapURL.forEach((key, value) -> {
+            Download download = new Download(key, value);
             download.start();
-            System.out.println("File #" + i + " is downloaded!");
             try {
                 download.join();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            //Download.downloadUsingStream(strings[i], "/Users/os_mac/IdeaProjects/JavaExam/" + "lic" + (i + 1) + ".jpg");
-        }
+        });
+
+//        for (Map.Entry<String, List<String>> entry : mapURL.entrySet()){
+//            Download download = new Download(entry.getKey(), entry.getValue());
+//            download.start();
+//            try {
+//                download.join();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 
 }
