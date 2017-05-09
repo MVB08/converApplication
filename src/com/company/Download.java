@@ -22,7 +22,6 @@ public class Download extends Thread {
         try {
             URL urlconnect = new URL(url);
 
-
             byte[] buffer = new byte[1024];
             int count=0;
 
