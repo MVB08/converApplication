@@ -11,13 +11,14 @@ public class Main {
 
 
 
-        Scanner scn = new Scanner(System.in);
-        int potoki =  scn.nextInt();
+//        Scanner scn = new Scanner(System.in);
+//        int potoki =  scn.nextInt();
 
 
         Parser parser = new Parser();
         List<String> list = parser.parse("/Users/os_mac/IdeaProjects/JavaExam/textFile.txt");
 
+        parser.mapping(list);
 
         // Каждую строку делим по пробелу, первую часть - URL-ссылку передаём первым параметром, вторую - имя выходного файла - вторым параметром и стартуем всё в разных потоках
         for (int i = 0; i < list.size(); i++){
