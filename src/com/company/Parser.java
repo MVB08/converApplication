@@ -12,11 +12,12 @@ import java.util.Map;
 public class Parser {
 
     // Создаём список для заполнения его ссылками из файла
-    List<String> list = new ArrayList<>();
+
     Map<String, List<String>> map = new HashMap<>();
 
     // Построчно считываем файл и заполняем ими list
     public List<String> parse(String textFile){
+        List<String> list = new ArrayList<>();
         try {
             File file = new File(textFile);
             FileReader fr = new FileReader(file);

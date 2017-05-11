@@ -10,8 +10,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Scanner scn = new Scanner(System.in);
-        int potoki =  scn.nextInt();
+//        Scanner scn = new Scanner(System.in);
+//        int potoki =  scn.nextInt();
 
         Parser parser = new Parser();
         List<String> list = parser.parse("/Users/os_mac/IdeaProjects/JavaExam/FilesFromURL/textFile.txt");
