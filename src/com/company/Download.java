@@ -21,7 +21,11 @@ public class Download extends Thread {
         this.outFiles = outFiles;
     }
     public void run(){
+        System.out.println("Starting: " + Thread.currentThread().getId());
+
         try {
+
+
             URL urlConnect = new URL(url);
 
             byte[] buffer = new byte[1024];
@@ -36,7 +40,8 @@ public class Download extends Thread {
             }
             fos.close();
             bis.close();
-            System.out.println(Thread.currentThread().getName() + " is done!");
+
+            //System.out.println(Thread.currentThread().getName() + " is done!");
 
             if (outFiles.size() != 0 || outFiles.size() != 1) {
                 for (int i = 1; i < outFiles.size(); i++){
@@ -49,5 +54,7 @@ public class Download extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("Completed: " + Thread.currentThread().getId());
+        System.out.println("File " + outFiles.get(0) + " is saved.");
     }
 }
