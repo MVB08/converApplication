@@ -7,14 +7,14 @@ import java.io.File;
  */
 public class FileSize {
 
-    private double sizeAll;
+    private static double sizeAll = 0;
 
     public double getSizeAll() {
         return sizeAll;
     }
 
-    public void setSizeAll(double sizeAll) {
-        this.sizeAll = sizeAll;
+    public static void setSizeAll(double size) {
+        sizeAll += size;
     }
 
 }

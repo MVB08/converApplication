@@ -1,5 +1,6 @@
 package com.company;
 
+
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -12,9 +13,10 @@ import java.util.List;
  * Created by os_mac on 30.04.17.
  */
 public class Download extends Thread {
+
     String url;
     List<String> outFiles;
-    String pack = "/Users/os_mac/IdeaProjects/JavaExam/FilesFromURL/";
+    String pack = "/home/alexander/JAVA/IdeaProjects/JavaExam/FilesFromURL/";
 
     public Download(String url, List<String> outFiles){
         this.url = url;
@@ -41,8 +43,6 @@ public class Download extends Thread {
             fos.close();
             bis.close();
 
-            //System.out.println(Thread.currentThread().getName() + " is done!");
-
             if (outFiles.size() != 0 || outFiles.size() != 1) {
                 for (int i = 1; i < outFiles.size(); i++){
                     File source = new File(pack + outFiles.get(0));
@@ -50,11 +50,21 @@ public class Download extends Thread {
                     Files.copy(source.toPath(), dest.toPath());
                 }
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
         System.out.println("Completed: " + Thread.currentThread().getId());
-        System.out.println("File " + outFiles.get(0) + " is saved.");
+        System.out.println("File " + outFiles.get(0) + " saved.");
+
+        double size = 0;
+        File file = new File(pack + outFiles.get(0));
+        if (file.exists()){
+            System.out.println("Файл уже записан на диск");
+            size = (double) ((file.length() / 1024) * outFiles.size());
+            System.out.println("Размер файла в KB: " + size);
+            FileSize.setSizeAll(size);
+        }
+
     }
+
 }
