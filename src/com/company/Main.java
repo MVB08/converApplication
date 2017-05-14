@@ -19,7 +19,7 @@ public class Main {
         ExecutorService executor = Executors.newFixedThreadPool(nThreads);
 
         Parser parser = new Parser();
-        List<String> list = parser.parse("/Users/os_mac/IdeaProjects/JavaExam/FilesFromURL/textFile.txt");
+        List<String> list = parser.parse("/Users/os_mac/IdeaProjects/JavaExam/TextFile/textFile.txt");
 
         parser.mapping(list);
         Map<String, List<String>> mapURL = parser.map;
@@ -40,7 +40,9 @@ public class Main {
             e.printStackTrace();
         }
 
-        System.out.println("All tasks completed.");
+        System.out.println("Завершено: 100%");
+        FileSize fs = new FileSize();
+        System.out.println("Загружено: " + mapURL.size() + " файлов, " + fs.getSizeAll() + "MB");
 
 
 //        mapURL.forEach((key, value) -> {
