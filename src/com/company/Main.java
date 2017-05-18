@@ -18,12 +18,13 @@ public class Main {
 
         Parser parser = new Parser();
 
-        List<String> list = parser.parse("/Users/os_mac/IdeaProjects/JavaExam/TextFile/textFile.txt");
+        List<String> list = parser.parse("src/links.txt");
 
         parser.mapping(list);
         Map<String, List<String>> mapURL = parser.map;
 
         System.out.println("The HashMap has " + mapURL.size() + " element(s).");
+        System.out.println(Runtime.getRuntime().availableProcessors());
 
         long start = System.currentTimeMillis();
         // Перебираем mapURL, передаём ключ со значением в конструктор и запускаем потоки

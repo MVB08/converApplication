@@ -1,6 +1,5 @@
 package com.company;
 
-import java.io.File;
 
 /**
  * Created by os_mac on 14.05.17.
