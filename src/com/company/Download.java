@@ -65,8 +65,13 @@ public class Download extends Thread {
         File file = new File(pack + outFiles.get(0));
         if (file.exists()){
             size = (double) ((file.length() / 1024) * outFiles.size());
-            System.out.println("Размер файла в kB: " + size);
-            System.out.println("Файл " + outFiles.get(0) + " загружен: " + size + " kB" + " за " + sdfFile.format(timeFile) + " минуту");
+            if (size < 1024) {
+                System.out.println("Размер файла в kB: " + size);
+                System.out.println("Файл " + outFiles.get(0) + " загружен: " + size + " kB" + " за " + sdfFile.format(timeFile) + " минуту");
+            } else {
+                System.out.printf("Размер файла в MB: %.1f\n", (size / 1024));
+                System.out.printf("Файл " + outFiles.get(0) + " загружен: %.1f  MB" + " за " + sdfFile.format(timeFile) + " минуту\n", (size / 1024));
+            }
             FileSize.setSizeAll(size);
         }
         System.out.println();

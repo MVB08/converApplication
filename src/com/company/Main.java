@@ -44,11 +44,11 @@ public class Main {
         SimpleDateFormat sdf = new SimpleDateFormat("mm' минуты 'ss");
 
         System.out.println();
-        System.out.println("Завершено: 100%");
         FileSize fs = new FileSize();
-        System.out.println("Загружено: " + mapURL.size() + " файлов, " + fs.getSizeAll() + " kB");
+        System.out.println("Завершено: 100%");
+        System.out.printf("Загружено: " + mapURL.size() + " файлов, %.1f MB\n", (fs.getSizeAll() / 1024));
         System.out.println("Время: " + sdf.format(time) + " секунд");
-        System.out.printf("Средняя скорость: %.1f kB/s\n", ((fs.getSizeAll() * 1000) / time));
+        System.out.printf("Средняя скорость: %.1f kB/s\n", ((fs.getSizeAll() * 1024) / time));
 
     }
 
