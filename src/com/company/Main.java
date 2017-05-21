@@ -18,11 +18,11 @@ public class Main {
 
 //        Scanner scn = new Scanner(System.in);
 //        int nThreads =  scn.nextInt();
-        ExecutorService executor = Executors.newFixedThreadPool(Integer.parseInt(args[0]));  // nThreads  Integer.parseInt(args[0])
+        ExecutorService executor = Executors.newFixedThreadPool(Integer.parseInt(args[0]));  // nThreads
 
         Parser parser = new Parser();
 
-        List<String> list = parser.parse("src/" + args[2]);  // "src/links.txt"
+        List<String> list = parser.parse("src/" + args[2]);
 
         parser.mapping(list);
         Map<String, List<String>> mapURL = parser.map;

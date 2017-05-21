@@ -18,14 +18,16 @@ public class Download extends Thread {
 
     String url;
     List<String> outFiles;
-    private String args;
-    String pack = args;  // "src/output_folder/"
+    private String pack;
+
 
     public Download(String url, List<String> outFiles, String args){
         this.url = url;
         this.outFiles = outFiles;
-        this.args = "src/" + args + "/";
+        this.pack = "src/" + args + "/";
     }
+
+
     public void run(){
         System.out.println("Starting: " + Thread.currentThread().getId());
         System.out.println("Загружается файл: " + outFiles.get(0));
