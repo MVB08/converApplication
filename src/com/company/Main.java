@@ -8,28 +8,32 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Консольная утилита для скачивания файлов по HTTP протоколу.
+ * @author alextsy
+ */
 public class Main {
 
     public static void main(String[] args) {
 
-        Scanner scn = new Scanner(System.in);
-        int nThreads =  scn.nextInt();
-        ExecutorService executor = Executors.newFixedThreadPool(nThreads);
+//        Scanner scn = new Scanner(System.in);
+//        int nThreads =  scn.nextInt();
+        ExecutorService executor = Executors.newFixedThreadPool(Integer.parseInt(args[0]));  // nThreads  Integer.parseInt(args[0])
 
         Parser parser = new Parser();
 
-        List<String> list = parser.parse("src/links.txt");
+        List<String> list = parser.parse("src/" + args[2]);  // "src/links.txt"
 
         parser.mapping(list);
         Map<String, List<String>> mapURL = parser.map;
 
         System.out.println("The HashMap has " + mapURL.size() + " element(s).");
-        System.out.println(Runtime.getRuntime().availableProcessors());
+        System.out.println("Доступно процессоров: " + Runtime.getRuntime().availableProcessors());
 
         long start = System.currentTimeMillis();
         // Перебираем mapURL, передаём ключ со значением в конструктор и запускаем потоки
         mapURL.forEach((key, value) -> {
-                executor.submit(new Download(key, value));
+                executor.submit(new Download(key, value, args[1]));
         });
 
         executor.shutdown();

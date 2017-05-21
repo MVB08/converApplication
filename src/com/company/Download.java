@@ -12,20 +12,24 @@ import java.util.List;
 
 /**
  * Created by os_mac on 30.04.17.
+ * Класс, скачивайщий файл по ссылке
  */
 public class Download extends Thread {
 
     String url;
     List<String> outFiles;
-    String pack = "/Users/os_mac/IdeaProjects/JavaExam/output_folder/";
+    private String args;
+    String pack = args;  // "src/output_folder/"
 
-    public Download(String url, List<String> outFiles){
+    public Download(String url, List<String> outFiles, String args){
         this.url = url;
         this.outFiles = outFiles;
+        this.args = "src/" + args + "/";
     }
     public void run(){
         System.out.println("Starting: " + Thread.currentThread().getId());
         System.out.println("Загружается файл: " + outFiles.get(0));
+        System.out.println();
 
         long startFile = System.currentTimeMillis();
 
@@ -67,10 +71,12 @@ public class Download extends Thread {
             size = (double) ((file.length() / 1024) * outFiles.size());
             if (size < 1024) {
                 System.out.println("Размер файла в kB: " + size);
-                System.out.println("Файл " + outFiles.get(0) + " загружен: " + size + " kB" + " за " + sdfFile.format(timeFile) + " минуту");
+                System.out.println("Файл " + outFiles.get(0) + " загружен: " + size + " kB" + " за " + sdfFile.format(timeFile) + " минут(ы)");
+                System.out.println();
             } else {
                 System.out.printf("Размер файла в MB: %.1f\n", (size / 1024));
                 System.out.printf("Файл " + outFiles.get(0) + " загружен: %.1f  MB" + " за " + sdfFile.format(timeFile) + " минуту\n", (size / 1024));
+                System.out.println();
             }
             FileSize.setSizeAll(size);
         }
