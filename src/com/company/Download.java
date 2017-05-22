@@ -20,18 +20,21 @@ public class Download extends Thread {
     List<String> outFiles;
     private String pack;
 
-
     public Download(String url, List<String> outFiles, String args){
         this.url = url;
         this.outFiles = outFiles;
-        this.pack = "src/" + args + "/";
+        this.pack = args + "/";  // "src/" + args + "/"
     }
-
 
     public void run(){
         System.out.println("Starting: " + Thread.currentThread().getId());
         System.out.println("Загружается файл: " + outFiles.get(0));
         System.out.println();
+
+        File folder = new File(pack);
+        if (!folder.exists()){
+            folder.mkdirs();
+        }
 
         long startFile = System.currentTimeMillis();
 
