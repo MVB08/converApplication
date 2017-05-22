@@ -23,7 +23,7 @@ public class Main {
 
         Parser parser = new Parser();
 
-        List<String> list = parser.parse("src/" + args[2]);
+        List<String> list = parser.parse(args[2]);
 
         parser.mapping(list);
         Map<String, List<String>> mapURL = parser.map;
