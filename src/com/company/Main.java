@@ -1,24 +1,17 @@
 package com.company;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Консольная утилита для скачивания файлов по HTTP протоколу.
- * @author alextsy
- */
 public class Main {
 
     public static void main(String[] args) {
 
-//        Scanner scn = new Scanner(System.in);
-//        int nThreads =  scn.nextInt();
+
         ExecutorService executor = Executors.newFixedThreadPool(Integer.parseInt(args[0]));  // nThreads
 
         Parser parser = new Parser();

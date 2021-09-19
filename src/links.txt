@@ -1,8 +1,3 @@
 http://www.licey86.ru/content/galleryBig/file204.jpg first.jpg
 http://www.licey86.ru/content/galleryBig/file204.jpg first-1.jpg
 http://www.licey86.ru/content/galleryBig/file204.jpg first-2.jpg
-http://www.licey86.ru/content/galleryBig/file34.jpg second.jpg
-http://www.licey86.ru/content/galleryBig/file19.jpg third.jpg
-http://javadevblog.com/sitemap.xml map.xml
-http://www.school30.spb.ru/info/PublicReport2015.pdf sixth.pdf
-http://rvi.msk.ru/assets/files/RVi-IPC52DN20_Night.avi video4.avi

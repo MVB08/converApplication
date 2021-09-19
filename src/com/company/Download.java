@@ -10,10 +10,7 @@ import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-/**
- * Created by os_mac on 30.04.17.
- * Класс, скачивайщий файл по ссылке
- */
+
 public class Download extends Thread {
 
     String url;
