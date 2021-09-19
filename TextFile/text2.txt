@@ -1,4 +1,0 @@
-http://xvid.ru/play/tests/ms-mp43.avi video.avi
-http://rvi.msk.ru/assets/files/RVi-IPC51DN18_Day.avi video2.avi
-http://rvi.msk.ru/assets/files/RVi-IPC52DN20_Day.avi video3.avi
-http://rvi.msk.ru/assets/files/RVi-IPC52DN20_Night.avi video4.avi
