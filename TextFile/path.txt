@@ -1,2 +1,0 @@
-Linux: /home/alexander/JAVA/IdeaProjects/JavaExam/TextFile/textFile.txt
-OS X: /Users/os_mac/IdeaProjects/JavaExam/TextFile/textFile.txt
